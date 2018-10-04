@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>My Bookshelf</title>
 	<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -9,51 +8,87 @@
 </head>
 
 <body>
-	<nav>
-		<ul>
-			<li id='liHome'>Home</li>
-			<li id='liProgress'>Progress</li>
-			<li id='liAbout'>About</li>
-		</ul>
-	</nav>
-
-
-	<div id="buttons">
-		<button id="addBook" class="btn btn-success">Add Book</button>
-		<button id="updateProgress" class="btn btn-primary">Update Reading Progress</button>
-		<button id="showMyShelf" class="btn btn-info">Show My Shelf</button>
-		<button id="showAllBooks" class="btn btn-info">Show All Books</button>
-
+	<!--Login screen-->
+	<div id="loginn">
+		<img id="limg" src="6.png" alt=""><br>
+		<input type="text" id="linput1" placeholder="user name"><br>
+		<input type="password" id="linput2" placeholder="password">
 	</div>
+	<!---->
 
-	<!--Add a book to shelf-->
-	<div id="formAddBook">
-		<img id="addBookImg" src="http://www.oogazone.com/wp-content/uploads/2018/05/best-free-add-book-image.jpg" alt="">
+	<!--Main screen-->
+	<span id="span">
+		<!--Navigation bar-->
+		<nav>
+			<ul>
+				<li id='liHome'>Home</li>
+				<li id='liProgress'>Progress</li>
+				<li id='liInfo'>Info</li>
+			</ul>
+		</nav>
+		<!---->
+
+		<!--General info screen-->
+		<div id='info'>
+			<p style="text-align:center;color:black;font-size:30px"><b>"Benefits of Reading"</b></p><br>
+			<img id="imgInfo" src="4.jpg" alt=""><br><br>
+			<p class="mentalStim">
+				<h3>Mental Stimulation</h3>
+				Studies have shown that staying mentally stimulated can slow the progress of (or possibly even prevent) Alzheimer’s
+				and Dementia, since keeping your brain active and engaged prevents it from losing power.
+
+				Just like any other muscle in the body, the brain requires exercise to keep it strong and healthy, so the phrase
+				“use it or lose it” is particularly apt when it comes to your mind. Doing puzzles and playing games such as chess
+				have also been found to be helpful with cognitive stimulation.
+			</p>
+			<hr>
+			<p class="stressReduct">
+				<h3>Stress Reduction</h3>
+				No matter how much stress you have at work, in your personal relationships, or countless other issues faced in
+				daily life, it all just slips away when you lose yourself in a great story. A well-written novel can transport you
+				to other realms, while an engaging article will distract you and keep you in the present moment, letting tensions
+				drain away and allowing you to relax.
+			</p>
+		</div>
+		<!---->
+
+		<!--Main functionalities buttons-->
+		<div id="buttons">
+			<button id="addBook" class="btn btn-success">Add Book</button>
+			<button id="updateProgress" class="btn btn-primary">Update Reading Progress</button>
+			<button id="showMyShelf" class="btn btn-warning">Show My Shelf</button>
+			<button id="showAllBooks" class="btn btn-info">Show All Books</button>
+		</div>
 		<br>
-		<input type="number" id="addBookid" placeholder="Type book ID...">
-		<br>
-		<button id="addToShelf">Add to Shelf</button>
-	</div>
+		<div id="divMAinImg">
+			<img id="mainImg" src="7.jpg" alt="">
+		</div>
+		<!---->
 
-	<!--Update progress of a book-->
-	<div id="formUpdateProgress">
-		<img id="progressImg" src="http://www.oogazone.com/wp-content/uploads/2018/05/best-free-add-book-image.jpg" alt="">
-		<br>
-		<input type="number" id="progressBookid" placeholder="Type book ID...">
-		<input type="number" id="bookProgressNumber" placeholder="Current Page">
-		<br>
-		<button id="updateProgressSave">Update</button>
-	</div>
+		<!--Add a book to shelf section-->
+		<div id="formAddBook">
+			<img id="addBookImg" src="http://www.oogazone.com/wp-content/uploads/2018/05/best-free-add-book-image.jpg" alt="">
+			<br>
+			<input type="number" id="addBookid" placeholder="Type book ID...">
+			<br>
+			<button id="addToShelf">Add to Shelf</button>
+		</div>
+		<!---->
 
-
-
-
-
-
+		<!--Update progress of a book section-->
+		<div id="formUpdateProgress">
+			<img id="progressImg" src="http://www.oogazone.com/wp-content/uploads/2018/05/best-free-add-book-image.jpg" alt="">
+			<br>
+			<input type="number" id="progressBookid" placeholder="Type book ID...">
+			<input type="number" id="bookProgressNumber" placeholder="Current Page">
+			<br>
+			<button id="updateProgressSave">Update</button>
+		</div>
+		<!---->
+	</span>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<script src="main.js"></script>
 </body>
-
 </html>
