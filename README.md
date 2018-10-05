@@ -1,4 +1,4 @@
-# my-book-shelf
+# my-Bookshelf
 Lets users do the following: 
 * Add books to bookshelf. 
 * Update reading progress. 
