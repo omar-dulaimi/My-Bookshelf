@@ -312,7 +312,7 @@ function updateNumPages(id, currentPage) {
 	var status = false;
 	this.userBooks.forEach(function (element, index) {
 		if (element.id === parseInt(id)) {
-			if(element.numPages >= parseInt(currentPage)){
+			if (element.numPages >= parseInt(currentPage)) {
 				element.currentNumPages = parseInt(currentPage);
 				status = true;
 			} else {
@@ -332,7 +332,7 @@ function displayProgress() {
 		var $myDiv = $("<div id=\'all\' class=\"card-columns text-center\" id=\"cards\"></div>");
 		var result = '\n';
 		this.userBooks.forEach(function (element, index) {
-			result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 29rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text text-danger\">" + (element.currentNumPages / element.numPages * 100).toFixed(2) + '%' + "</p></div>";
+			result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 31rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text text-light progressPar\">Percentage: " + Math.floor(element.currentNumPages / element.numPages * 100) + '%<br>Pages: ' + element.currentNumPages + '/' + element.numPages + "</p></div>";
 			$($myDiv).append(result);
 		});
 		$('body').append($myDiv);

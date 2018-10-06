@@ -196,3 +196,9 @@ hr{
     -ms-user-select: none;
     user-select: none;
 }
+
+.progressPar{
+	font-family: 'Vollkorn', serif;
+	border: 5px solid #7eb5d2;
+	border-radius: 15px;
+}
