@@ -300,7 +300,7 @@ function displayLibraryBooks() {
 	var result = '\n';
 	books.forEach(function (element, index) {
 		//result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 35rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text\">" + element.description + "</p>" + "<h6><em style=\"color:red\">" + element.id + "</em></h6>" + "</div>";
-		result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 38rem;\"><img class=\"card-img-top\" style=\"height: 347px;\" src='" + element.src + "'><div class=\"card-body\"><h5 class=\" card-title\">" + element.title + "</h5><p class=\"card-text\" style=\"height: 144px;\">" + element.description + "</p><h6 class=\"card-text\"><em style=\"color:red\">" + element.id + "</em></h6></div></div>";
+		result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 38rem;\"><img class=\"card-img-top\" style=\"height: 347px;\" src='" + element.src + "'><div class=\"card-body\"><h5 class=\" card-title\">" + element.title + "</h5><p class=\"card-text\" style=\"height: 144px;\">" + element.description + "</p><h6 class=\"card-text\"><em style=\"color:#fff\">[" + element.id + "]</em></h6></div></div>";
 		$($myDiv).append(result);
 	});
 	$('body').append($myDiv);
