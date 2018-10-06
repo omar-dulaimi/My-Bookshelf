@@ -252,12 +252,12 @@ function User(name, userName, password, email) {
 var user1 = User('sa', 'admin', '123', 'eng.admin@gmail.com');
 var user2 = User('sartyer', 'user', '1rthyrt23', 'rhhrtn@gmail.com');
 
-// Push the users to the users array
+// Add the users to users object with the username as a key
 users[user1.userName] = user1;
 users[user2.userName] = user2;
 
 
-//Create three books
+//Create six books
 createBook('In Search of Lost Time', 'Marcel Proust', 'Modern Literature', '4.3', 1908, 4215, "https://images.gr-assets.com/books/1384932885l/18869288.jpg", "«In Search of Lost Time» is a novel in seven volumes. The novel began to take shape in 1909.");
 createBook('Don Quixote', 'Miguel de Cervantes', 'Classics', '3.2', 1615, 1023, "https://images.gr-assets.com/books/1364958765l/3836.jpg", "Don Quixote has become so entranced by reading chivalric romances, that he determines to become a knight-errant himself.");
 createBook('Ulysses', 'James Joyce', 'Classics', '3.7', 1922, 730, "https://images.gr-assets.com/books/1428891345l/338798.jpg", "Loosely based on the Odyssey, this landmark of modern literature follows ordinary Dubliners in 1904.");
@@ -312,11 +312,15 @@ function updateNumPages(id, currentPage) {
 	var status = false;
 	this.userBooks.forEach(function (element, index) {
 		if (element.id === parseInt(id)) {
-			element.currentNumPages = parseInt(currentPage);
-			status = true;
+			if(element.numPages >= parseInt(currentPage)){
+				element.currentNumPages = parseInt(currentPage);
+				status = true;
+			} else {
+				alert('The last page of this book is: ' + element.numPages + '\nYou are currently on page: ' + element.currentNumPages);
+			}
 		}
 	});
-	return status ? alert('Success!') : alert('No such book!');
+	return status ? alert('Success!') : alert('Failed!');
 }
 
 // Shows all the progress the user has made with their books
