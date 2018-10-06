@@ -258,7 +258,7 @@ users[user2.userName] = user2;
 
 
 //Create six books
-createBook('In Search of Lost Time', 'Marcel Proust', 'Modern Literature', '4.3', 1908, 4215, "https://images.gr-assets.com/books/1384932885l/18869288.jpg", "«In Search of Lost Time» is a novel in seven volumes. The novel began to take shape in 1909.");
+createBook('The Stranger', 'Albert Camus', 'Classics', '3.97', 1989 , 123, "https://images.gr-assets.com/books/1349927872l/49552.jpg", "The Stranger is a novel by Albert Camus that was first published in 1942.");
 createBook('Don Quixote', 'Miguel de Cervantes', 'Classics', '3.2', 1615, 1023, "https://images.gr-assets.com/books/1364958765l/3836.jpg", "Don Quixote has become so entranced by reading chivalric romances, that he determines to become a knight-errant himself.");
 createBook('Ulysses', 'James Joyce', 'Classics', '3.7', 1922, 730, "https://images.gr-assets.com/books/1428891345l/338798.jpg", "Loosely based on the Odyssey, this landmark of modern literature follows ordinary Dubliners in 1904.");
 createBook('The Great Gatsby', 'F. Scott Fitzgerald', 'Classics', '3.9', 1925, 180, "https://images.gr-assets.com/books/1490528560l/4671.jpg", "The Great Gatsby, F. Scott Fitzgerald’s third book, stands as the supreme achievement of his career.");
@@ -286,7 +286,7 @@ function displayMyBooks() {
 		var $myDiv = $("<div id=\'all\' class=\"card-columns text-center\" id=\"cards\"></div>");
 		var result = '\n';
 		this.userBooks.forEach(function (element, index) {
-			result = "<div class=\" card text-white bg-secondary \" style=\"max-width: 14rem; height: 35rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text\">" + element.description + "</p></div>";
+			result = "<div class=\" card text-white bg-secondary \" style=\"max-width: 14rem; height: 35rem;\"><img class=\"card-img-top\" style=\"height: 347px;\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text\">" + element.description + "</p></div>";
 			$($myDiv).append(result);
 		});
 		$('body').append($myDiv);
@@ -300,7 +300,7 @@ function displayLibraryBooks() {
 	var result = '\n';
 	books.forEach(function (element, index) {
 		//result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 35rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text\">" + element.description + "</p>" + "<h6><em style=\"color:red\">" + element.id + "</em></h6>" + "</div>";
-		result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 37rem;\"><img class=\"card-img-top\" src='" + element.src + "'><div class=\"card-body\"><h5 class=\" card-title\">" + element.title + "</h5><p class=\"card-text\">" + element.description + "</p><h6 class=\"card-text\"><em style=\"color:red\">" + element.id + "</em></h6></div></div>";
+		result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 38rem;\"><img class=\"card-img-top\" style=\"height: 347px;\" src='" + element.src + "'><div class=\"card-body\"><h5 class=\" card-title\">" + element.title + "</h5><p class=\"card-text\" style=\"height: 144px;\">" + element.description + "</p><h6 class=\"card-text\"><em style=\"color:red\">" + element.id + "</em></h6></div></div>";
 		$($myDiv).append(result);
 	});
 	$('body').append($myDiv);
@@ -332,7 +332,7 @@ function displayProgress() {
 		var $myDiv = $("<div id=\'all\' class=\"card-columns text-center\" id=\"cards\"></div>");
 		var result = '\n';
 		this.userBooks.forEach(function (element, index) {
-			result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 31rem;\"><img class=\"card-img-top\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text text-light progressPar\">Percentage: " + Math.floor(element.currentNumPages / element.numPages * 100) + '%<br>Pages: ' + element.currentNumPages + '/' + element.numPages + "</p></div>";
+			result = "<div class=\"card text-white bg-secondary\" style=\"max-width: 14rem; height: 31rem;\"><img class=\"card-img-top\" style=\"height: 347px;\" src=\"" + element.src + "\"><div class=\"card-body\"><h5 class=\"card-title\">" + element.title + "</h5><p class=\"card-text text-light progressPar\">Percentage: " + Math.floor(element.currentNumPages / element.numPages * 100) + '%<br>Pages: ' + element.currentNumPages + '/' + element.numPages + "</p></div>";
 			$($myDiv).append(result);
 		});
 		$('body').append($myDiv);
