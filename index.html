@@ -10,24 +10,81 @@
 </head>
 
 <body>
-	<!--Login screen-->
-	<div id="loginn">
-		<img id="limg" src="img\6.png" alt=""><br>
-		<input type="text" id="linput1" placeholder="Username"><br>
-		<input type="password" id="linput2" placeholder="Password">
+
+
+	<div id="signInOrSignUp" class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<button id="signInMain" class="btn btn-success btn-block btn-sm">Signin</button>
+			</div>
+			<div class="col-sm-2">
+				<button id="signUpMain" class="btn btn-primary btn-block btn-sm">Signup</button>
+			</div>
+		</div>
+	</div>
+
+
+	<!--Signin-->
+	<div id="signIn" class="container">
+		<div class="row">
+			<img id="limg" src="img\6.png" alt="">
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="text" id="userNameSignInInput" class="form-control" placeholder="Username" required>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="password" id="passwordSignInInput" class="form-control" placeholder="Password" minlength="8" maxlength="24"
+				 required>
+			</div>
+		</div>
+
 	</div>
 	<!---->
 
+	<!--Signup-->
+	<div class="container" id="signUp">
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="text" class="form-control" id="nameInput" placeholder="Name" required>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="text" class="form-control" id="userNameInput" placeholder="Username" required>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<input type="password" class="form-control" id="passwordSignUpInput" placeholder="Password" minlength="8" maxlength="24"
+				 required>
+			</div>
+		</div>
+		<button class="btn btn-primary" id="signUpButton">Signup</button>
+	</div>
+	<!---->
 
 	<!--Main screen-->
 	<span id="span">
 		<!--Navigation bar-->
 		<nav>
-			<ul class = "unselectText">
+			<ul class="unselectText">
 				<li id='liHome'>Home</li>
 				<li id='liProgress'>Progress</li>
 				<li id='liInfo'>Info</li>
+				<li id="signOutLi">Sign Out</li>
 			</ul>
 		</nav>
 		<!---->
