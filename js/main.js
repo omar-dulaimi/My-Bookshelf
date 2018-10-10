@@ -22,42 +22,49 @@ $(document).ready(function () {
 	$('#all').remove();
 	$('#signUp').hide();
 	$('#signIn').hide();
+	$('#signInOrSignUp').show();
 
 	//;---------------------------------------------------------------------------------------------;
 	//Sign in main button
 	$('#signInMain').on('click', function () {
 		$('#signUp').detach();
 		$('#signInOrSignUp').after(signin);
+		$('#signIn').show();
+		var i = 0;
+
 		// Shows the login screen
 		$('#limg').on('click', function () {
 			var inputUserName = $('#userNameSignInInput').val();
 			var inputPassword = $('#passwordSignInInput').val();
 			var loginState = false;
-
 			Object.keys(users).forEach(function (key) {
+				console.log(i + ' - ' + Object.keys(users)); // to debug
 				if (users[key].userName === inputUserName && users[key].password === inputPassword) {
+					//console.log(i + '-username = ' + inputUserName + '\n' + (i + 1) + '-password = ' + inputPassword); //to debug
+					
+
+					loginState = true;
+					currentUser = users[key].userName;
 					$('body').css('background-image', '');
 					$('body').css('background-color', 'rgb(0, 0, 0)');
 					$('#signIn').hide();
 					$('#signUp').hide();
 					$('#span').show();
-					loginState = true;
-					currentUser = users[key].userName;
-					$('#signInOrSignUp').hide();
-					$('#userNameSignInInput').val('');
-					$('#passwordSignInInput').val('');
-					$('#nameInput').val('');
-					$('#userNameInput').val('');
-					$('#emailInput').val('');
-					$('#passwordSignUpInput').val('');
 
+					// $('#userNameSignInInput').val('');
+					// $('#passwordSignInInput').val('');
+					// $('#nameInput').val('');
+					// $('#userNameInput').val('');
+					// $('#emailInput').val('');
+					// $('#passwordSignUpInput').val('');
+					$('#signInOrSignUp').hide();
 				}
 			});
 			if (!loginState) {
 				alert('Wrong username or password!');
 				$('#userNameSignInInput').val('');
 				$('#passwordSignInInput').val('');
-				$('#signInOrSignUp').show();
+				//$('#signInOrSignUp').show();
 			}
 		});
 
@@ -89,9 +96,25 @@ $(document).ready(function () {
 			var inputUserName = $('#userNameInput').val();
 			var inputEmail = $('#emailInput').val();
 			var inputPassword = $('#passwordSignUpInput').val();
+			var newUserState = false;
 
-			users[inputUserName] = User(inputName, inputUserName, inputPassword, inputEmail);
-			alert('Success!\nNow you need to signin to your bookshelf.');
+
+			Object.keys(users).forEach(function (key) {
+				if (users[key].userName !== inputUserName && users[key].email !== inputEmail) {
+					newUserState = true;
+					users[inputUserName] = User(inputName, inputUserName, inputPassword, inputEmail);
+					alert('Success!\nNow you need to signin to your bookshelf.');
+					$('#nameInput').val('');
+					$('#userNameInput').val('');
+					$('#emailInput').val('');
+					$('#passwordSignUpInput').val('');
+				}
+			});
+			if (!newUserState) {
+				alert('A user already exist with this email or password!');
+				//$('#signInOrSignUp').show();
+			}
+
 		});
 	});
 
@@ -112,8 +135,8 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').hide();
 		$('.displayedAllBooksP').html('');
 		$('#all').remove();
-		$('#signUp').hide();
-		$('#signIn').hide();
+		//$('#signUp').hide();
+		//$('#signIn').hide();
 
 		$('#signInOrSignUp').show();
 	});
