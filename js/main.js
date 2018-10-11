@@ -4,7 +4,7 @@ var users = {};
 var currentUser = 'user';
 var signin = $('#signIn').detach();
 var signup = $('#signUp').detach();
-
+$('#limg').hide();
 
 // Execute the code only when the document is fully loaded in the memory
 $(document).ready(function () {
@@ -23,6 +23,7 @@ $(document).ready(function () {
 	$('#signUp').hide();
 	$('#signIn').hide();
 	$('#signInOrSignUp').show();
+	$('#limg').hide();
 
 	//;---------------------------------------------------------------------------------------------;
 	//Sign in main button
@@ -30,6 +31,7 @@ $(document).ready(function () {
 		$('#signUp').detach();
 		$('#signInOrSignUp').after(signin);
 		$('#signIn').show();
+		$('#limg').hide();
 		var i = 0;
 
 		// Shows the login screen
@@ -88,6 +90,7 @@ $(document).ready(function () {
 	//;---------------------------------------------------------------------------------------------;
 	//Sign up main button
 	$('#signUpMain').on('click', function () {
+		$('#limg').hide();
 		$('#signIn').detach();
 		$('#signInOrSignUp').after(signup);
 
@@ -121,6 +124,7 @@ $(document).ready(function () {
 	//;---------------------------------------------------------------------------------------------;
 	//Sign out li button
 	$('#signOutLi').on('click', function () {
+		$('#limg').hide();
 		currentUser = '';
 		$('body').css('background-color', '');
 		$('#noBooksShelf').hide();
