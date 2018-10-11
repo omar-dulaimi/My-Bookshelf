@@ -52,6 +52,8 @@ $(document).ready(function () {
 					$('#signIn').hide();
 					$('#signUp').hide();
 					$('#span').show();
+					$('#divMAinImg').show();
+					$('#buttons').show();
 
 					// $('#userNameSignInInput').val('');
 					// $('#passwordSignInInput').val('');
@@ -139,6 +141,8 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').hide();
 		$('.displayedAllBooksP').html('');
 		$('#all').remove();
+		$('#divMAinImg').hide();
+		$('#buttons').hide();
 		//$('#signUp').hide();
 		//$('#signIn').hide();
 
