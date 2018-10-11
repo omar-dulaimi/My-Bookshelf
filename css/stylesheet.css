@@ -3,7 +3,7 @@ body {
 }
 
 nav{
-	background-color: #007EA7;
+	background-color: #202835;
 	height: 70px;
 	padding-top: 5px;
 	cursor: pointer;
@@ -22,8 +22,8 @@ nav{
 
  #mainImg{
 	border-radius: 10px;
-	width:600px;
-	height:600px ;
+	width:800px;
+	height:400px ;
  }
 
 li{
@@ -32,10 +32,12 @@ li{
 	padding-right:20px; 
 	padding-top: 20px;
 	padding-bottom:23px; 
+	color: azure;
 }
 
 li:hover{
 	background-color: #A8DADC;  
+	color: rgba(0,0,0);
 }
 
 #addBookImg, #progressImg{
@@ -45,8 +47,8 @@ li:hover{
 
 #addBookid, #progressBookid, #bookProgressNumber, #userName {
     width: 50%;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f8e4ff;
+    color: #350b0b;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -56,7 +58,7 @@ li:hover{
 }
 
 #addBookid:hover, #progressBookid:hover, #bookProgressNumber:hover, userName:hover {
-    background-color: #45a049;
+    background-color: #8eb1dc;
 }
 
 #addToShelf, #updateProgressSave, #login{
@@ -78,7 +80,7 @@ li:hover{
 }
 
 #formAddBook, #formUpdateProgress{
-	border: 5px solid #E63946;
+	border: 5px solid #b2cde0;
 	text-align: center;
 	margin-right: 30%;
 	margin-left: 30%;
@@ -101,22 +103,31 @@ li:hover{
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 6px 14px 2px rgb(250, 247, 247);
+	width: 60%;
 }
 
 .container {
     padding: 2px 16px;
 }
 
+
 #limg{
-	width:60px;
-	height:60px;
-	border-radius:50%;
-	margin-top:20px; 
-	margin-left:30px; 
+	width:70px;
+	height:70px;
 	cursor: pointer;
+	opacity: 0.8;
 }
 
+
+
+#limg:hover{
+	opacity: 1;
+}
+
+
+
+/*
 #linput1{
 	width: 10%;
     background-color: gold;
@@ -139,28 +150,75 @@ li:hover{
 	font-size: 18px;
 	margin-top: 10px
 }
+*/
 
-#loginn{
-	margin-left: 47%;
-	margin-top: 300px;
+#signIn{
+text-align: center;
+padding: 15% 0;
+}
+
+#nameInput, #userNameInput, #emailInput, #passwordSignUpInput, #userNameSignInInput, #passwordSignInInput{
+	background-color: gold;
+	color: black;
+}
+
+#signOutLi{
+	float: right;
+} 
+
+#signOutLi:hover{
+	background-color: maroon;
+	color: aliceblue;
 }
 
 hr{
     border: 0;
     height: 0; 
-	box-shadow: 0 0 10px 1px black;
+	box-shadow: 0px 3px 1px 0px #f7e6e6;
 	margin-top: 10%;
 }
 
 #imgInfo{
-	border-radius:50px;
-	width:350px;
 	height: 350px; 
-
 }
 
 #info{
-	margin-right: 25%;
-	margin-left: 25%;
-	text-align: center;
+	
+	color: #f2f6ff;
+}
+
+.mentalStim, stressReduct {
+	text-align: left;
+	margin-left: 30px;
+}
+
+#infoTitle{
+	font-size:30px;
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
+
+#articleContent{
+	margin-top: 5%;
+}
+
+#noBooksShelf{
+	margin: 5%;
+	margin-top: 2%;
+	color: #f2f6ff;
+}
+
+.unselectText{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.progressPar{
+	font-family: 'Vollkorn', serif;
+	border: 5px solid #7eb5d2;
+	border-radius: 15px;
 }
