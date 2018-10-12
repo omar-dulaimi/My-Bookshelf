@@ -11,68 +11,94 @@
 
 <body>
 
+	<div class="signInUpButtons">
+		<div class="btn-group">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signInModal">
+				Signin
+			</button>
+			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#signUpModal">
+				Signup
+			</button></div>
+	</div>
 
-	<div id="signInOrSignUp" class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<button id="signInMain" class="btn btn-success btn-block btn-sm">Signin</button>
+	<div class="modalsContainer">
+		<!-- Sign In Modal -->
+		<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		 aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Welcome Back!</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+								<input type="text" id="userNameSignInInput" class="form-control" placeholder="Username" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+								<input type="password" id="passwordSignInInput" class="form-control" placeholder="Password" required>
+							</div>
+						</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary signinButton">Signin</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-2">
-				<button id="signUpMain" class="btn btn-primary btn-block btn-sm">Signup</button>
+		</div>
+
+		<!-- Sign Up Modal -->
+		<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		 aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form>
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Create Account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+									<form class="signUpform">
+										<input type="text" class="form-control" id="nameInput" placeholder="Name" data-toggle="tooltip"
+										 data-placement="right" title="Please fill this field">
+										<button type="submit" style="display:none;" class="submitbtn" name="lol"></button>
+									</form>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+									<input type="text" class="form-control" id="userNameInput" placeholder="Username" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+									<input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4 col-sm-6 col-md-8 col-lg-8">
+									<input type="password" class="form-control" id="passwordSignUpInput" placeholder="Password" required>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary signupButton">Signup</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
-	<!--Signin-->
-	<div id="signIn" class="container">
-	<!---->	<div class="row">
-			<img id="limg" src="img\6.png" alt="">
-		</div>
-
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="text" id="userNameSignInInput" class="form-control" placeholder="Username" required>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="password" id="passwordSignInInput" class="form-control" placeholder="Password" required>
-			</div>
-		</div>
-
-	</div>
-	<!---->
-
-	<!--Signup-->
-	<div class="container" id="signUp">
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="text" class="form-control" id="nameInput" placeholder="Name" required>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="text" class="form-control" id="userNameInput" placeholder="Username" required>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="email" class="form-control" id="emailInput" placeholder="Email" required>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-xs-6">
-				<input type="password" class="form-control" id="passwordSignUpInput" placeholder="Password" required>
-			</div>
-		</div>
-		<button class="btn btn-primary" id="signUpButton">Signup</button>
-	</div>
-	<!---->
 
 	<!--Main screen-->
 	<span id="span">
@@ -107,7 +133,8 @@
 						and Dementia, since keeping your brain active and engaged prevents it from losing power.
 
 						Just like any other muscle in the body, the brain requires exercise to keep it strong and healthy, so the phrase
-						“use it or lose it” is particularly apt when it comes to your mind. Doing puzzles and playing games such as chess
+						“use it or lose it” is particularly apt when it comes to your mind. Doing puzzles and playing games such as
+						chess
 						have also been found to be helpful with cognitive stimulation.
 					</p>
 				</div>
@@ -122,7 +149,8 @@
 						No matter how much stress you have at work, in your personal relationships, or countless other issues faced in
 						daily life, it all just slips away when you lose yourself in a great story. A well-written novel can transport
 						you
-						to other realms, while an engaging article will distract you and keep you in the present moment, letting tensions
+						to other realms, while an engaging article will distract you and keep you in the present moment, letting
+						tensions
 						drain away and allowing you to relax.
 					</p>
 				</div>

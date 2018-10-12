@@ -2,9 +2,6 @@
 var books = [];
 var users = {};
 var currentUser = 'user';
-var signin = $('#signIn').detach();
-var signup = $('#signUp').detach();
-$('#limg').hide();
 
 // Execute the code only when the document is fully loaded in the memory
 $(document).ready(function () {
@@ -20,113 +17,101 @@ $(document).ready(function () {
 	$('.displayedAllBooksP').hide();
 	$('.displayedAllBooksP').html('');
 	$('#all').remove();
-	$('#signUp').hide();
-	$('#signIn').hide();
-	$('#signInOrSignUp').show();
-	$('#limg').hide();
+	$('.signInUpButtons').show();
+	//$('[data-toggle="tooltip"]').tooltip(); 
+	$('[data-toggle="tooltip"]').tooltip({ trigger: 'manual' });
+
 
 	//;---------------------------------------------------------------------------------------------;
 	//Sign in main button
-	$('#signInMain').on('click', function () {
-		$('#signUp').detach();
-		$('#signInOrSignUp').after(signin);
-		$('#signIn').show();
-		$('#limg').hide();
-		var i = 0;
-
-		// Shows the login screen
-		$('#limg').on('click', function () {
-			var inputUserName = $('#userNameSignInInput').val();
-			var inputPassword = $('#passwordSignInInput').val();
-			var loginState = false;
-			Object.keys(users).forEach(function (key) {
-				console.log(i + ' - ' + Object.keys(users)); // to debug
-				if (users[key].userName === inputUserName && users[key].password === inputPassword) {
-					//console.log(i + '-username = ' + inputUserName + '\n' + (i + 1) + '-password = ' + inputPassword); //to debug
-					
-
-					loginState = true;
-					currentUser = users[key].userName;
-					$('body').css('background-image', '');
-					$('body').css('background-color', 'rgb(0, 0, 0)');
-					$('#signIn').hide();
-					$('#signUp').hide();
-					$('#span').show();
-					$('#divMAinImg').show();
-					$('#buttons').show();
-
-					// $('#userNameSignInInput').val('');
-					// $('#passwordSignInInput').val('');
-					// $('#nameInput').val('');
-					// $('#userNameInput').val('');
-					// $('#emailInput').val('');
-					// $('#passwordSignUpInput').val('');
-					$('#signInOrSignUp').hide();
-				}
-			});
-			if (!loginState) {
-				alert('Wrong username or password!');
-				$('#userNameSignInInput').val('');
-				$('#passwordSignInInput').val('');
-				//$('#signInOrSignUp').show();
+	$('.signinButton').on('click', function () {
+		var inputUserName = $('#userNameSignInInput').val();
+		var inputPassword = $('#passwordSignInInput').val();
+		var userExist = false;
+		Object.keys(users).forEach(function (key) {
+			if (users[key].userName === inputUserName && users[key].password === inputPassword) {
+				userExist = true;
 			}
 		});
 
-		$('#passwordSignInInput').keypress(function (element) {
-			var key = element.which;
-			if (key == 13) {
-				$('#limg').click();
-				return false;
-			}
-		});
+		if (userExist) {
+			currentUser = inputUserName;
+			$('body').css('background-image', '');
+			$('body').css('background-color', 'rgb(0, 0, 0)');
+			$('#signIn').hide();
+			$('#signUp').hide();
+			$('#span').show();
+			$('#buttons').show();
 
-		$('#userNameSignInInput').keypress(function (element) {
-			var key = element.which;
-			if (key == 13) {
-				$('#limg').click();
-				return false;
-			}
-		});
+			$('#userNameSignInInput').val('');
+			$('#passwordSignInInput').val('');
+			$('#nameInput').val('');
+			$('#userNameInput').val('');
+			$('#emailInput').val('');
+			$('#passwordSignUpInput').val('');
+			$('#signInModal').modal('hide');
+			$('#signUpModal').modal('hide');
+			$('.container').hide();
+			$('.signInUpButtons').hide();
+			$('#divMAinImg').show();
+		} else {
+			alert('Wrong username or password!');
+			$('#userNameSignInInput').val('');
+			$('#passwordSignInInput').val('');
+		}
 	});
+
+	$('#passwordSignInInput').keypress(function (element) {
+		var key = element.which;
+		if (key == 13) {
+			$('.signinButton').click();
+			return false;
+		}
+	});
+
+	$('#userNameSignInInput').keypress(function (element) {
+		var key = element.which;
+		if (key == 13) {
+			$('.signinButton').click();
+			return false;
+		}
+	});
+
 
 	//;---------------------------------------------------------------------------------------------;
 	//Sign up main button
-	$('#signUpMain').on('click', function () {
-		$('#limg').hide();
-		$('#signIn').detach();
-		$('#signInOrSignUp').after(signup);
+	$('.signupButton').on('click', function () {
+		var inputName = $('#nameInput').val();
+		var inputUserName = $('#userNameInput').val();
+		var inputEmail = $('#emailInput').val();
+		var inputPassword = $('#passwordSignUpInput').val();
+		var newUserState = false;
 
-		$('#signUpButton').on('click', function () {
-			var inputName = $('#nameInput').val();
-			var inputUserName = $('#userNameInput').val();
-			var inputEmail = $('#emailInput').val();
-			var inputPassword = $('#passwordSignUpInput').val();
-			var newUserState = false;
-
-
+		if (inputName === '' || inputUserName === '' || inputEmail === '' || inputPassword === '') {
+			alert('Please fill all fields!');
+		} else {
 			Object.keys(users).forEach(function (key) {
 				if (users[key].userName !== inputUserName && users[key].email !== inputEmail) {
 					newUserState = true;
-					users[inputUserName] = User(inputName, inputUserName, inputPassword, inputEmail);
-					alert('Success!\nNow you need to signin to your bookshelf.');
-					$('#nameInput').val('');
-					$('#userNameInput').val('');
-					$('#emailInput').val('');
-					$('#passwordSignUpInput').val('');
 				}
 			});
-			if (!newUserState) {
+			if (newUserState) {
+				users[inputUserName] = User(inputName, inputUserName, inputPassword, inputEmail);
+				alert('Success!\nNow you need to signin to your bookshelf.');
+				$('#nameInput').val('');
+				$('#userNameInput').val('');
+				$('#emailInput').val('');
+				$('#passwordSignUpInput').val('');
+			} else {
 				alert('A user already exist with this email or password!');
-				//$('#signInOrSignUp').show();
 			}
-
-		});
+		}
 	});
+
 
 	//;---------------------------------------------------------------------------------------------;
 	//Sign out li button
 	$('#signOutLi').on('click', function () {
-		$('#limg').hide();
 		currentUser = '';
 		$('body').css('background-color', '');
 		$('#noBooksShelf').hide();
@@ -145,6 +130,9 @@ $(document).ready(function () {
 		$('#buttons').hide();
 		//$('#signUp').hide();
 		//$('#signIn').hide();
+		$('.container').show();
+		$('.signInUpButtons').show();
+
 
 		$('#signInOrSignUp').show();
 	});
@@ -161,7 +149,7 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').html('');
 		$('#formAddBook').show();
 		$('#all').remove();
-		$('#mybook').remove()
+		$('#mybook').remove();
 	});
 
 	//;---------------------------------------------------------------------------------------------;
@@ -177,7 +165,7 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').html('');
 		$('#formUpdateProgress').show();
 		$('#all').remove();
-		$('#mybook').remove()
+		$('#mybook').remove();
 	});
 
 	//;---------------------------------------------------------------------------------------------;
@@ -195,7 +183,7 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').html('');
 		$('.displayedBookP').show();
 		$('#all').remove();
-		$('#mybook').remove()
+		$('#mybook').remove();
 
 		myDiv = users[currentUser].displayMyBooks();
 
@@ -216,7 +204,7 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').html('');
 		$('.displayedAllBooksP').show();
 		$('#all').remove();
-		$('#mybook').remove()
+		$('#mybook').remove();
 
 		displayLibraryBooks();
 	});
@@ -246,8 +234,8 @@ $(document).ready(function () {
 			users[currentUser].updateNumPages(id, currPage);
 		}
 
-		$('#progressBookid').val('')
-		$('#bookProgressNumber').val('')
+		$('#progressBookid').val('');
+		$('#bookProgressNumber').val('');
 	});
 
 	//;---------------------------------------------------------------------------------------------;
@@ -262,7 +250,7 @@ $(document).ready(function () {
 		$('.displayedAllBooksP').hide();
 		$('.displayedAllBooksP').html('');
 		$('.displayedBookP').hide();
-		$('#mainImg').hide()
+		$('#mainImg').hide();
 		$('#all').remove();
 		$('#mybook').remove();
 		$("#buttons").hide();
@@ -317,7 +305,7 @@ function generateID() {
 	var start = 0;
 	return function () {
 		return ++start;
-	}
+	};
 }
 var countID = generateID();
 

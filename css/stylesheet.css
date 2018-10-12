@@ -107,58 +107,13 @@ li:hover{
 	width: 60%;
 }
 
-.container {
-    padding: 2px 16px;
-}
-
-
-#limg{
-	width:70px;
-	height:70px;
-	cursor: pointer;
-	opacity: 0.8;
-}
-
-
-
-#limg:hover{
-	opacity: 1;
-}
-
-
-
-/*
-#linput1{
-	width: 10%;
-    background-color: gold;
-    color: black;
-    padding: 5px 5px;
-    border: none;
-	border-radius: 4px;
-	font-size: 18px;
-	margin-top:50px 
-	
-}
-
-#linput2{
-	width: 10%;
-    background-color: gold;
-    color: black;
-    padding: 5px 5px;
-    border: none;
-	border-radius: 4px;
-	font-size: 18px;
-	margin-top: 10px
-}
-*/
 
 #signIn{
 text-align: center;
-padding: 15% 0;
 }
 
 #nameInput, #userNameInput, #emailInput, #passwordSignUpInput, #userNameSignInInput, #passwordSignInInput{
-	background-color: gold;
+	background-color: rgb(255, 255, 255);
 	color: black;
 }
 
@@ -221,4 +176,24 @@ hr{
 	font-family: 'Vollkorn', serif;
 	border: 5px solid #7eb5d2;
 	border-radius: 15px;
+}
+
+
+.modal-content{
+	background-color: rgba(56, 132, 204, 0.78) !important;
+	/*
+	background-color: rgb(206, 170, 104)
+*/
+}
+
+.modalsContainer{
+	color: rgb(242, 246, 255);
+}
+
+.modal-content:hover{
+	box-shadow: 0 0 10px 1px rgb(250, 247, 247);
+}
+
+.signInUpButtons{
+	text-align: center;
 }
