@@ -187,13 +187,13 @@ hr{
 }
 
 .modalsContainer{
-	color: rgb(242, 246, 255);
+	color: rgb(242, 246, 255) !important;
 }
 
 .modal-content:hover{
-	box-shadow: 0 0 10px 1px rgb(250, 247, 247);
+	box-shadow: 0 0 10px 1px rgb(250, 247, 247) !important;
 }
 
 .signInUpButtons{
-	text-align: center;
+	text-align: center !important;
 }
